@@ -45,11 +45,23 @@ function gradeQuiz(candidateAnswers) {
   // console.log("Incorrect");
   // }
 
+let grade = 0 ;
 
-  let grade;
-  
+for (let i = 0; i < questions.length; i++) {
+  if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
+    grade = grade + 1;
+  } 
 
-  return grade;
+
+} 
+  let percent = (grade / questions.length) * 100;
+  console.log(`>>> Overall Grade: ${percent} (${grade} of 5 responses correct) <<<`)
+  if (percent >= 80) {
+      console.log(">>> Status: PASSED <<<");
+    } else {
+      console.log(">>> Status: FAILED <<<");
+      } 
+     return grade;
 }
 
 function runProgram() {
